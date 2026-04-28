@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Glow Up · Planner Mensual</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:#fdf0f4; --bg2:#fce8ef; --bg3:#fff5f8;
+  --pink:#e8508a; --pink-lt:#f4a0c0; --rose:#c84070;
+  --dark:#1a0a10; --muted:#9a7080; --border:#f0c8d8;
+  --gold:#c9a05a; --white:#fffafc;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { 
+    font-family:'Lato',sans-serif; 
+    background:var(--white); 
+    color:var(--dark); 
+    line-height:1.7; 
+    font-variant-numeric: lining-nums;
+    font-feature-settings: "lnum" 1;
+}
+
+/* ── HERO ── */
+.hero {
+  background: linear-gradient(160deg, #fff5f8 0%, #fde8f0 60%, #fff0f5 100%);
+  padding: 70px 24px 55px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.brand { font-size:10px; letter-spacing:6px; text-transform:uppercase; color:var(--pink); font-weight:700; display:block; margin-bottom:18px; }
+.hero h1 { font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); font-weight:900; color:var(--dark); line-height:1.15; max-width:720px; margin:0 auto 20px; }
+.hero h1 em { color:var(--pink); font-style:italic; }
+.hero p { font-size:1.05rem; max-width:600px; margin:0 auto 14px; color:#5a3040; }
+.hero p strong { color:var(--dark); }
+
+.hero-imgs {
+  display:flex; justify-content:center; gap:18px; margin:38px auto 10px;
+  max-width:860px; align-items:flex-end; flex-wrap:wrap;
+}
+.hero-imgs img {
+  border-radius:12px;
+  box-shadow:0 10px 40px rgba(232,80,138,0.2);
+  object-fit:cover;
+}
+.hero-imgs .img-main { width:230px; height:300px; }
+.hero-imgs .img-sec  { width:175px; height:225px; }
+
+/* ── BTN ── */
+.btn {
+  display:inline-block; background:var(--pink); color:white;
+  font-family:'Lato',sans-serif; font-weight:700; font-size:1rem;
+  letter-spacing:2px; text-transform:uppercase; text-decoration:none;
+  padding:17px 50px; border-radius:50px; margin:26px auto 6px;
+  box-shadow:0 8px 28px rgba(232,80,138,0.38);
+}
+.btn-note { font-size:11px; color:var(--muted); letter-spacing:2px; text-transform:uppercase; display:block; margin-top:6px; }
+
+/* ── SECTIONS ── */
+.sec       { padding:64px 24px; max-width:920px; margin:0 auto; }
+.sec-bg    { background:var(--bg2); width:100%; padding:64px 24px; }
+.sec-bg .i { max-width:920px; margin:0 auto; }
+.sec-bg3   { background:var(--bg3); width:100%; padding:64px 24px; }
+.sec-bg3 .i{ max-width:920px; margin:0 auto; }
+
+.label { font-size:10px; font-weight:700; letter-spacing:5px; text-transform:uppercase; color:var(--pink); text-align:center; display:block; margin-bottom:10px; }
+.title { font-family:'Playfair Display',serif; font-size:clamp(1.5rem,3.5vw,2.2rem); font-weight:700; color:var(--dark); text-align:center; line-height:1.25; margin-bottom:8px; }
+.title em { color:var(--pink); font-style:italic; }
+.subtitle { text-align:center; color:var(--muted); font-size:1rem; max-width:580px; margin:0 auto 40px; }
+
+.ornament { text-align:center; color:var(--pink-lt); font-size:16px; letter-spacing:5px; padding:8px 0; }
+
+/* ── NÚMERO GRANDE ── */
+.big-count {
+  text-align:center; margin:0 auto 50px;
+  display:flex; justify-content:center; gap:40px; flex-wrap:wrap;
+}
+.count-item { text-align:center; }
+.count-num {
+  font-family:'Playfair Display',serif; font-size:3.5rem; font-weight:900;
+  color:var(--pink); line-height:1;
+}
+.count-lbl { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+
+/* ── PLANTILLAS GRID ── */
+.plantillas-grid {
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:16px; margin-top:36px;
+}
+.plant-card {
+  background:var(--white); border:1.5px solid var(--border);
+  border-radius:14px; padding:20px 18px; text-align:center;
+}
+.plant-icon { font-size:26px; margin-bottom:8px; display:block; }
+.plant-card h3 { font-family:'Playfair Display',serif; font-size:14px; font-weight:700; color:var(--dark); margin-bottom:6px; }
+.plant-card p  { font-size:12px; color:var(--muted); line-height:1.55; }
+
+/* ── IMAGE GALLERY ── */
+.gallery {
+  display:grid; grid-template-columns:repeat(3,1fr);
+  gap:14px; margin:36px 0;
+}
+.gallery img {
+  width:100%; border-radius:12px; object-fit:cover; height:220px;
+  box-shadow:0 4px 20px rgba(232,80,138,0.12);
+  display:block;
+}
+.gallery img:nth-child(2) { height:280px; margin-top:-30px; }
+.gallery img:nth-child(4) { height:200px; }
+.gallery img:nth-child(5) { height:260px; margin-top:-20px; }
+
+/* ── CHECK LIST ── */
+.check-item { display:flex; gap:10px; margin-bottom:10px; align-items:flex-start; font-size:14px; color:#4a2030; }
+.dot { width:8px; height:8px; background:var(--pink); border-radius:50%; flex-shrink:0; margin-top:6px; }
+
+/* ── PRICING ── */
+.pricing-wrap { background:var(--bg2); padding:64px 24px; text-align:center; border-top:1px solid var(--border); }
+.pricing-box {
+  background:var(--white); border:2px solid var(--border);
+  border-radius:20px; padding:44px 36px; max-width:500px;
+  margin:0 auto; box-shadow:0 16px 50px rgba(232,80,138,0.1);
+}
+.price-urgency { font-size:11px; font-weight:700; letter-spacing:4px; text-transform:uppercase; color:var(--pink); display:block; margin-bottom:22px; }
+.price-old  { font-size:1.1rem; color:var(--muted); text-decoration:line-through; margin-bottom:4px; }
+.price-only { font-size:10px; letter-spacing:4px; text-transform:uppercase; color:var(--muted); margin-bottom:6px; }
+.price-main { font-family:'Playfair Display',serif; font-size:4.2rem; font-weight:900; color:var(--dark); line-height:1; margin:6px 0 20px; }
+.price-main sup { font-size:1.8rem; vertical-align:super; }
+
+/* ── GUARANTEE ── */
+.guarantee {
+  background:var(--bg3); border:1.5px solid var(--border);
+  border-radius:14px; padding:24px 28px; max-width:620px;
+  margin:36px auto 0; display:flex; align-items:center; gap:20px; text-align:left;
+}
+.guar-icon { font-size:44px; flex-shrink:0; }
+.guarantee h3 { font-family:'Playfair Display',serif; font-size:1rem; color:var(--pink); margin-bottom:6px; }
+.guarantee p  { font-size:13px; color:#5a3040; line-height:1.7; }
+
+/* ── PULL QUOTE ── */
+.pq {
+  background:var(--white); border-left:4px solid var(--pink);
+  border-radius:0 10px 10px 0; padding:16px 22px; margin:28px 0;
+  font-family:'Playfair Display',serif; font-style:italic;
+  font-size:1.1rem; color:var(--dark); line-height:1.6;
+}
+
+/* ── FAQ ── */
+.faq-item { border-bottom:1.5px solid var(--border); padding:22px 0; }
+.faq-n { font-size:10px; font-weight:700; letter-spacing:3px; color:var(--pink); margin-bottom:6px; display:block; }
+.faq-q { font-weight:700; font-size:15px; color:var(--dark); margin-bottom:8px; }
+.faq-a { font-size:14px; color:#6a4050; line-height:1.75; }
+.faq-a a { color:var(--pink); }
+
+/* ── FOOTER ── */
+footer { background:var(--bg2); border-top:1px solid var(--border); padding:28px 24px; text-align:center; font-size:12px; color:var(--muted); }
+
+/* ── BADGE ── */
+.badge {
+  display:inline-block; background:var(--pink); color:white;
+  font-size:10px; font-weight:700; letter-spacing:2px;
+  text-transform:uppercase; padding:4px 12px; border-radius:20px; margin-bottom:14px;
+}
+
+/* ── DIVIDER ── */
+.div-line { border:none; border-top:1px solid var(--border); margin:0; }
+
+/* ── RESPONSIVE ── */
+@media(max-width:680px){
+  .gallery { grid-template-columns:1fr 1fr; }
+  .gallery img { height:160px !important; margin-top:0 !important; }
+  .hero-imgs .img-main { width:160px; height:210px; }
+  .hero-imgs .img-sec  { width:120px; height:160px; }
+  .guarantee { flex-direction:column; }
+  .pricing-box { padding:28px 20px; }
+}
+@media(max-width:480px){
+  .gallery { grid-template-columns:1fr; }
+  .plantillas-grid { grid-template-columns:1fr 1fr; }
+  .big-count { gap:24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <span class="brand">@my.glow.up · Chicas del 1%</span>
+  <h1>Tu <em>planner mensual</em><br>de glow up está aquí</h1>
+  <p>25 plantillas diseñadas para organizarte, construir hábitos y vivir con intención cada mes. <strong>Todo en un solo archivo imprimible.</strong></p>
+
+  <div class="hero-imgs">
+    <img class="img-sec" src="https://www.shutterstock.com/image-photo/closeup-portrait-woman-radiant-skin-600nw-2512405867.jpg" alt="Mujer organizada" style="border-radius:12px;">
+    <img class="img-main" src="https://i0.wp.com/laurajadeprado.com/wp-content/uploads/2023/03/digital-planner-hyperlinked-undated-with-aesthetic-design-for-ipad-and-tablets-The-Everday-Essentials-Planner-and-digital-notebook-journal-x-TWG-Designs-13.jpg?w=1100&ssl=1" style="border-radius:12px;">
+    <img class="img-sec" src="https://lisahomsy.com/wp-content/uploads/2019/06/Alive-4-1440x1800.jpg" alt="Rutina de mañana" style="border-radius:12px;">
+  </div>
+
+  <a class="btn" href="https://pay.hotmart.com/">QUIERO MI PLANNER — $3.99</a>
+  <span class="btn-note">📥 Descarga inmediata · PDF imprimible</span>
+</section>
+
+<div class="div-line"></div>
+
+<!-- ══ NÚMEROS ══ -->
+<div class="sec" style="text-align:center; padding-bottom:40px;">
+  <span class="label">De un vistazo</span>
+  <div class="big-count">
+    <div class="count-item">
+      <div class="count-num">25</div>
+      <div class="count-lbl">Plantillas incluidas</div>
+    </div>
+    <div class="count-item">
+      <div class="count-num">4</div>
+      <div class="count-lbl">Categorías</div>
+    </div>
+    <div class="count-item">
+      <div class="count-num">A4</div>
+      <div class="count-lbl">Formato imprimible</div>
+    </div>
+    <div class="count-item">
+      <div class="count-num">$3.99</div>
+      <div class="count-lbl">Un solo pago</div>
+    </div>
+  </div>
+
+  <div class="pq" style="max-width:640px; margin:0 auto;">"Este planner no es para la perfección. Es para la consistencia. Úsalo, rállalo, escríbelo todo. Es tuyo."</div>
+</div>
+
+<div class="div-line"></div>
+
+<!-- ══ QUÉ INCLUYE ══ -->
+<div class="sec-bg">
+  <div class="i">
+    <span class="label">Contenido completo</span>
+    <h2 class="title">25 plantillas para <em>cada área de tu vida</em></h2>
+    <p class="subtitle">Organizadas en 4 categorías para que no se te escape nada.</p>
+
+    <div class="plantillas-grid">
+
+      <div class="plant-card">
+        <span class="plant-icon">📅</span>
+        <h3>Planificación</h3>
+        <p>Visión del mes · Calendario mensual · 4 planificadores semanales · Planificador diario · Lista maestra de tareas</p>
+      </div>
+
+      <div class="plant-card">
+        <span class="plant-icon">🌸</span>
+        <h3>Hábitos & Rutinas</h3>
+        <p>Tracker de hábitos 31 días · Rutina de mañana · Rutina de noche · Tracker de agua · Tracker de sueño · Plan de movimiento</p>
+      </div>
+
+      <div class="plant-card">
+        <span class="plant-icon">🧠</span>
+        <h3>Mentalidad & Crecimiento</h3>
+        <p>Afirmaciones del mes · Diario de gratitud · Metas del mes · Rueda de la vida · Visión board · Control de emociones</p>
+      </div>
+
+      <div class="plant-card">
+        <span class="plant-icon">✨</span>
+        <h3>Glow Up & Lifestyle</h3>
+        <p>Tracker de skincare · Planificador de outfits · Tracker financiero · Lecturas y contenido · Cierre y reflexión del mes</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ══ GALERÍA ══ -->
+<div class="sec">
+  <span class="label">Diseñado para ti</span>
+  <h2 class="title">Bonito, elegante y <em>funcional</em></h2>
+  <p class="subtitle">Imprimible en casa o en cualquier imprenta. Solo necesitas papel y ganas de organizarte.</p>
+
+  <div class="gallery">
+    <img src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=600&q=80" alt="Journal aesthetic">
+    <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=600&q=80" alt="Planner y café">
+    <img src="https://images.unsplash.com/photo-1501139083538-0139583c060f?w=600&q=80" alt="Rutina mañana">
+    <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?w=600&q=80" alt="Estilo de vida">
+  </div>
+</div>
+
+<div class="div-line"></div>
+
+<!-- ══ PARA QUIÉN ══ -->
+<div class="sec-bg3">
+  <div class="i">
+    <span class="label">¿Es para ti?</span>
+    <h2 class="title">Este planner es para la chica que <em>quiere más</em></h2>
+    <p class="subtitle" style="margin-bottom:30px;">Si te identificas con alguna de estas, esto es tuyo:</p>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px 24px; max-width:660px; margin:0 auto 32px;">
+      <div class="check-item"><div class="dot"></div><span>Empiezas el mes con energía y a mitad pierdes el hilo</span></div>
+      <div class="check-item"><div class="dot"></div><span>Quieres construir hábitos pero no sabes cómo medirlos</span></div>
+      <div class="check-item"><div class="dot"></div><span>Tienes metas pero no un sistema para seguirlas</span></div>
+      <div class="check-item"><div class="dot"></div><span>Tu skincare y outfits son caóticos sin estructura</span></div>
+      <div class="check-item"><div class="dot"></div><span>Quieres vivir con más intención y menos piloto automático</span></div>
+      <div class="check-item"><div class="dot"></div><span>Amas lo estético y quieres algo que dé gusto usar</span></div>
+    </div>
+
+    <div style="text-align:center;">
+      <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=900&q=80" alt="It girl lifestyle" style="width:100%; max-width:700px; border-radius:16px; box-shadow:0 12px 40px rgba(232,80,138,0.15); object-fit:cover; height:280px;">
+    </div>
+  </div>
+</div>
+
+<!-- ══ PRECIO ══ -->
+<div class="pricing-wrap">
+  <span class="label">Accede hoy</span>
+  <h2 class="title" style="margin-bottom:8px;">Tu glow up organizado por <em>menos de un café</em></h2>
+  <p class="subtitle">25 plantillas listas para imprimir. Acceso inmediato.</p>
+
+  <div class="pricing-box">
+    <span class="price-urgency">💖 Precio especial de lanzamiento</span>
+    <p class="price-old">Precio regular: $12.00 USD</p>
+    <p class="price-only">Hoy solo</p>
+    <p class="price-main"><sup>$</sup>3.99</p>
+    <p style="font-size:12px; color:var(--muted); margin-bottom:20px;">USD · Un solo pago · Tuyo para siempre</p>
+    <a class="btn" href="https://pay.hotmart.com/" style="display:block; margin:0 0 10px;">DESCARGAR MI PLANNER</a>
+    <span class="btn-note">🔒 Pago seguro a través de Hotmart</span>
+    <p style="font-size:12px; color:var(--muted); margin-top:16px; padding-top:14px; border-top:1px solid var(--border);">Recibes el PDF en tu correo inmediatamente después del pago. Imprime en casa o en imprenta.</p>
+  </div>
+
+  <div class="guarantee">
+    <div class="guar-icon">🛡️</div>
+    <div>
+      <h3>Garantía de 7 días</h3>
+      <p>Si no estás satisfecha, te devolvemos el <strong>100% de tu dinero</strong> sin preguntas. Cero riesgo.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FAQ ══ -->
+<div class="sec" style="max-width:720px;">
+  <span class="label">Preguntas frecuentes</span>
+  <h2 class="title" style="margin-bottom:36px;">Lo que más nos preguntan</h2>
+
+  <div class="faq-item">
+    <span class="faq-n">01.</span>
+    <p class="faq-q">¿En qué formato llega el planner?</p>
+    <p class="faq-a">En PDF, listo para imprimir en tamaño A4. Puedes imprimirlo en casa o en cualquier imprenta. También puedes usarlo en digital con apps como GoodNotes o Notability.</p>
+  </div>
+
+  <div class="faq-item">
+    <span class="faq-n">02.</span>
+    <p class="faq-q">¿Cómo recibo mi planner?</p>
+    <p class="faq-a">Inmediatamente después del pago recibes un correo con el enlace de descarga. Es instantáneo.</p>
+  </div>
+
+  <div class="faq-item">
+    <span class="faq-n">03.</span>
+    <p class="faq-q">¿Puedo usarlo más de una vez?</p>
+    <p class="faq-a">Sí. Al ser un PDF puedes imprimirlo todas las veces que quieras. Ideal para usarlo cada mes.</p>
+  </div>
+
+  <div class="faq-item">
+    <span class="faq-n">04.</span>
+    <p class="faq-q">¿Es seguro el pago?</p>
+    <p class="faq-a">100%. El pago se procesa a través de <strong>Hotmart</strong>, la plataforma de productos digitales más grande del habla hispana.</p>
+  </div>
+
+  <div class="faq-item">
+    <span class="faq-n">05.</span>
+    <p class="faq-q">¿Funciona junto con la guía My Glow Up 90 Días?</p>
+    <p class="faq-a">Perfectamente. Si tu adquieres la guía My Glow Up 90 Días ya recibes este kit incluido, pero si quieres solo tener un cambio de organización sin motivación extra, este kit es para ti.</p>
+  </div>
+</div>
+
+<!-- ══ CIERRE ══ -->
+<div class="sec-bg" style="text-align:center;">
+  <div class="i">
+    <div class="ornament">✦ ✦ ✦</div>
+    <h2 class="title" style="margin:16px 0 12px;">Organiza tu mes.<br><em>Construye tu versión del 1%.</em></h2>
+    <p class="subtitle">25 plantillas · $3.99 · Descarga inmediata</p>
+    <a class="btn" href="https://pay.hotmart.com/">QUIERO MI PLANNER</a>
+    <span class="btn-note">🛡️ Garantía 7 días · Sin riesgo</span>
+  </div>
+</div>
+
+<footer>
+  <p style="margin-bottom:5px;"><strong>@my.glow.up</strong> · Chicas del 1%</p>
+  <p>Producto digital · PDF imprimible · Todos los derechos reservados</p>
+</footer>
+
+</body>
+</html>
